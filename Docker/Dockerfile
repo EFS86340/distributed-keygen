@@ -51,6 +51,10 @@ RUN cd ~ && git clone https://github.com/amiller/distributed-keygen.git   && \
   make clean && \
   make
 
+# Added by Xu Wang
+# fix the shared library loading problem
+RUN cd /etc/ld.so.conf.d && echo "/usr/local/bin" > dkg.conf
+
 WORKDIR /root/distributed-keygen
 
 RUN echo "Base DKG image complete"
